@@ -1,64 +1,94 @@
-## Microservice
-IBM Cloud Microservice Starter for Java - MicroProfile / Java EE
+<p align="center">
+    <a href="http://kitura.io/">
+        <img src="https://landscape.cncf.io/logos/ibm-cloud.svg" height="100" alt="IBM Cloud">
+    </a>
+</p>
 
-[![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
-[![Platform](https://img.shields.io/badge/platform-java-lightgrey.svg?style=flat)](https://www.ibm.com/developerworks/learn/java/)
 
-### Table of Contents
-* [Summary](#summary)
-* [Requirements](#requirements)
-* [Configuration](#configuration)
-* [Project contents](#project-contents)
-* [Run](#run)
+<p align="center">
+    <a href="https://cloud.ibm.com">
+    <img src="https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg" alt="IBM Cloud">
+    </a>
+    <a href="https://www.ibm.com/developerworks/learn/java/">
+    <img src="https://img.shields.io/badge/platform-java-lightgrey.svg?style=flat" alt="platform">
+    </a>
+    <img src="https://img.shields.io/badge/license-Apache2-blue.svg?style=flat" alt="Apache 2">
+</p>
 
-### Summary
 
-The IBM Cloud Microservice Starter for Java - MicroProfile / Java EE provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/).
+# Create and deploy a Java - MicroProfile / Java EE microservice
 
-To deploy this application to IBM Cloud using a toolchain click the **Create Toolchain** button.
-[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/)
+> We have similar applications available for [Go](https://github.com/IBM/go-microservice), [Spring](https://github.com/IBM/spring-microservice), [Python Flask](https://github.com/IBM/flask-microservice), and [Node](https://github.com/IBM/nodejs-microservice).
 
-### Requirements
+In this sample application, you will create a Java Liberty microservice.  This provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check and application metric monitoring.
+
+The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file and exposed to the CLI in the cli-config.yml file. The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`. The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file.
+
+## Steps
+
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/a6102fa2-5243-32f9-9f58-e025d53db443/java-microservice-with-eclipse-microprofile-and-java-ee) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
+
+### Deploying to IBM Cloud
+
+<p align="center">
+    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/a6102fa2-5243-32f9-9f58-e025d53db443/java-microservice-with-eclipse-microprofile-and-java-ee">
+    <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
+    </a>
+</p>
+
+Use the button above to deploy this same application to IBM Cloud.  This option will create a deployment pipeline, complete with a hosted Git lab project and devops toolchain.  You will have the option of deploying to either CloudFoundry or a Kubernetes cluster. [IBM Cloud DevOps](https://www.ibm.com/cloud-computing/bluemix/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. 
+
+
+### Building Locally
+
+To get started building this application locally, you can either run the application natively or use the IBM Cloud Developer Tools for containerization and easy deployment to IBM Cloud.
+
+#### Native Application Development
+
 * [Maven](https://maven.apache.org/install.html)
 * Java 8: Any compliant JVM should work.
   * [Java 8 JDK from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
   * [Java 8 JDK from IBM (AIX, Linux, z/OS, IBM i)](http://www.ibm.com/developerworks/java/jdk/),
     or [Download a Liberty server package](https://developer.ibm.com/assets/wasdev/#filter/assetTypeFilters=PRODUCT)
     that contains the IBM JDK (Windows, Linux)
-
-### Configuration
-The application is configured to provide JAX-RS REST capabilities, JNDI, JSON parsing and Contexts and Dependency Injection (CDI).
-
-These capabilities are provided through dependencies in the pom.xml file and Liberty features enabled in the server config file found in `src/main/liberty/config/server.xml`.
-
-### Project contents
-The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`. The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file and exposed to the CLI in the cli-config.yml file.
-
-The project contains IBM Cloud specific files that are used to deploy the application as part of a IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment and which services to bind to.
-
-
-Credentials are either taken from the VCAP_SERVICES environment variable that IBM Cloud provides or from environment variables passed in by JNDI (see the server config file `src/main/liberty/config/server.xml`).
-
-### Run
-
+    
 To build and run the application:
 1. `mvn install`
 1. `mvn liberty:run-server`
 
+To run an application in Docker use the Docker file called `Dockerfile`. If you do not want to install Maven locally you can use `Dockerfile-tools` to build a container with Maven installed.
 
-To run the application in Docker use the Docker file called `Dockerfile`. If you do not want to install Maven locally you can use `Dockerfile-tools` to build a container with Maven installed.
+#### IBM Cloud Developer Tools
 
-### Endpoints
+Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli/index.html#overview) on your machine by using the following installation command: `curl -sL https://ibm.biz/idt-installer | bash`.
 
-The application exposes the following endpoints:
-* Health endpoint: `<host>:<port>/<contextRoot>/health`
+Your application will be compiled with Docker containers. To compile and run your app, run:
 
-The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file and exposed to the CLI in the cli-config.yml file.
+```bash
+ibmcloud dev build
+ibmcloud dev run
+```
 
-### Notices
+This will launch your application locally.  When you are ready to deploy to IBM Cloud on CloudFoundry or Kubernetes, run one of the commands below:
 
-This project was generated using:
-* generator-ibm-java v5.14.1
-* generator-ibm-service-enablement v3.2.1
-* generator-ibm-cloud-enablement v1.7.7
-* generator-ibm-java-liberty v
+```bash
+ibmcloud dev deploy -t buildpack
+ibmcloud dev deploy -t container
+```
+
+You can build and debug your app locally with:
+
+```bash
+ibmcloud dev build --debug
+ibmcloud dev debug
+```
+
+## Next Steps
+* Learn more about augmenting your Java applications on IBM Cloud with the [Java Programming Guide](https://cloud.ibm.com/docs/java).
+* Explore other [sample applications](https://cloud.ibm.com/developer/appservice/starter-kits) on IBM Cloud.
+
+## License
+
+This sample application is licensed under the Apache License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1](https://developercertificate.org/) and the [Apache License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
+
+[Apache License FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
