@@ -16,7 +16,7 @@
 </p>
 
 
-# Create and deploy a Java - MicroProfile / Java EE microservice
+# Create and deploy a Java - MicroProfile / Java EE Microservice
 
 > We have similar applications available for [Go](https://github.com/IBM/go-microservice), [Spring](https://github.com/IBM/spring-microservice), [Python Flask](https://github.com/IBM/flask-microservice), and [Node](https://github.com/IBM/nodejs-microservice).
 
