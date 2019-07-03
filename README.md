@@ -20,13 +20,13 @@
 
 > We have similar applications available for [Go](https://github.com/IBM/go-microservice), [Spring](https://github.com/IBM/spring-microservice), [Python Flask](https://github.com/IBM/flask-microservice), and [Node](https://github.com/IBM/nodejs-microservice).
 
-In this sample application, you will create a Java Liberty microservice.  This provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check and application metric monitoring.
+In this sample application, you will create a Java Liberty microservice. This provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check and application metric monitoring.
 
-The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file and exposed to the CLI in the `cli-config.yml` file. The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`. The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the pom.xml file.
+The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file and exposed to the CLI in the `cli-config.yml` file. The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`. The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file.
 
 ## Steps
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/a6102fa2-5243-32f9-9f58-e025d53db443/java-microservice-with-eclipse-microprofile-and-java-ee) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/a6102fa2-5243-32f9-9f58-e025d53db443/java-microservice-with-eclipse-microprofile-and-java-ee) or [build it locally](#building-locally) by cloning this repo first. Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
 ### Deploying to IBM Cloud
 
@@ -36,7 +36,7 @@ You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/a
     </a>
 </p>
 
-Use the button above to deploy this same application to IBM Cloud.  This option will create a deployment pipeline, complete with a hosted Git lab project and DevOps toolchain.  You will have the option of deploying to either Cloud Foundry or a Kubernetes cluster. [IBM Cloud DevOps](https://www.ibm.com/cloud/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. 
+Use the button above to deploy this same application to IBM Cloud. This option will create a deployment pipeline, complete with a hosted Git lab project and DevOps toolchain. You will have the option of deploying to either Cloud Foundry or a Kubernetes cluster. [IBM Cloud DevOps](https://www.ibm.com/cloud/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. 
 
 
 ### Building Locally
@@ -60,7 +60,10 @@ To run an application in Docker use the Docker file called `Dockerfile`. If you 
 
 #### IBM Cloud Developer Tools
 
-Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) on your machine by using the following installation command: `curl -sL https://ibm.biz/idt-installer | bash`.
+Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) on your machine by running the following command:
+```
+curl -sL https://ibm.biz/idt-installer | bash
+```
 
 Your application will be compiled with Docker containers. To compile and run your app, run:
 
@@ -69,7 +72,7 @@ ibmcloud dev build
 ibmcloud dev run
 ```
 
-This will launch your application locally.  When you are ready to deploy to IBM Cloud on Cloud Foundry or Kubernetes, run one of the commands below:
+This will launch your application locally. When you are ready to deploy to IBM Cloud on Cloud Foundry or Kubernetes, run one of the commands:
 
 ```bash
 ibmcloud dev deploy -t buildpack
