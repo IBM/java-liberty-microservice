@@ -15,6 +15,6 @@
 
   <applicationMonitor pollingRate="1000ms"/>
 
-  <webApplication name="javalibertymicroservice" location="${app.location}" contextRoot="/"/>
+  <webApplication name="javalibertymicroservice-1.0-SNAPSHOT" location="${app.location}" contextRoot="/"/>
 
 </server>
