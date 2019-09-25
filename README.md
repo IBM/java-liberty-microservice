@@ -65,6 +65,14 @@ Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-c
 curl -sL https://ibm.biz/idt-installer | bash
 ```
 
+Create an application on IBM Cloud by running:
+
+```bash
+ibmcloud dev create
+```
+
+This will create and download a starter application with the necessary files needed for local development and deployment.
+
 Your application will be compiled with Docker containers. To compile and run your app, run:
 
 ```bash
@@ -75,8 +83,8 @@ ibmcloud dev run
 This will launch your application locally. When you are ready to deploy to IBM Cloud on Cloud Foundry or Kubernetes, run one of the commands:
 
 ```bash
-ibmcloud dev deploy -t buildpack
-ibmcloud dev deploy -t container
+ibmcloud dev deploy -t buildpack // to Cloud Foundry
+ibmcloud dev deploy -t container // to K8s cluster
 ```
 
 You can build and debug your app locally with:
