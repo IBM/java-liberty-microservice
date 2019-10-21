@@ -20,7 +20,7 @@
 
 > We have similar applications available for [Go](https://github.com/IBM/go-microservice), [Spring](https://github.com/IBM/spring-microservice), [Python Flask](https://github.com/IBM/flask-microservice), and [Node](https://github.com/IBM/nodejs-microservice).
 
-In this sample application, you will create a Java Liberty microservice. This provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check and application metric monitoring.
+In this sample application, you will create a Java Liberty microservice. This provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check.
 
 The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file and exposed to the CLI in the `cli-config.yml` file. The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`.
 
