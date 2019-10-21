@@ -22,7 +22,7 @@
 
 In this sample application, you will create a Java Liberty microservice. This provides a starting point for creating Java microservice applications running on [WebSphere Liberty](https://developer.ibm.com/wasdev/). It contains no default application code, but comes with standard best practices, including a health check and application metric monitoring.
 
-The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file and exposed to the CLI in the `cli-config.yml` file. The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`. The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file.
+The context root is set in the `src/main/webapp/WEB-INF/ibm-web-ext.xml` file. The ports are set in the `pom.xml` file and exposed to the CLI in the `cli-config.yml` file. The microservice application has a health endpoint which is accessible at `<host>:<port>/javalibertymicroservice/health`.
 
 ## Steps
 
